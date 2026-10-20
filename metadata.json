@@ -1,0 +1,6 @@
+{
+  "name": "Link Load",
+  "description": "Smart India Hackathon 2026: Local Logistics & Transporter Load-Matching Platform by Team Vision Volt. More Loads. Fewer Empty Miles.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    match /users/{uid} {
+      allow create: if isOwner(uid) && request.resource.data.keys().hasOnly(['fullName','address','email','phone','role','createdAt','updatedAt']);
+      allow update, delete: if isOwner(uid);
+      allow get: if isOwner(uid);
+      allow list: if signedIn() && (
+        resource.data.email == request.auth.token.email ||
+        resource.data.phone == request.auth.token.phone_number);
+    }
+    match /loads/{id} {
+      allow read: if true;
+      allow create: if signedIn() && request.resource.data.ownerId == request.auth.uid;
+      allow update, delete: if signedIn() && resource.data.ownerId == request.auth.uid;
+    }
+    match /trucks/{id} {
+      allow read: if true;
+      allow create: if signedIn() && request.resource.data.ownerId == request.auth.uid;
+      allow update, delete: if signedIn() && resource.data.ownerId == request.auth.uid;
+    }
+    match /matches/{id} { allow read, write: if signedIn(); }
+    match /messages/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.senderId == request.auth.uid;
+    }
+    match /notifications/{id} {
+      allow read, update: if signedIn() && resource.data.userId == request.auth.uid;
+      allow create: if signedIn();
+    }
+    match /ratings/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.fromId == request.auth.uid;
+    }
+  }
+}

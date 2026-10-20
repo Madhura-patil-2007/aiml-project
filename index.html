@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIML Web Application Project – Madhura Patil</title>
+<meta name="description" content="Interactive machine learning web application built by Madhura Patil, KIT's College of Engineering, Kolhapur.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top">🤖 AIML<span>Project</span></a>
+  <nav>
+    <a href="#demo">Live demo</a>
+    <a href="#features">Features</a>
+    <a href="#stack">Tech</a>
+    <a href="#about">About</a>
+    <button id="theme" aria-label="Toggle theme">🌓</button>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="badge">SST ISE-II · GitHub Pages Project</p>
+    <h1>Machine learning,<br><span class="grad">right in your browser.</span></h1>
+    <p class="lead">An interactive AIML web application that learns from your data in real time. Click, add points and watch the model train.</p>
+    <div class="cta">
+      <a class="btn primary" href="#demo">Try the demo</a>
+      <a class="btn" href="https://github.com/Madhura-patil-2007/aiml-project" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </section>
+
+  <section id="demo">
+    <h2>Interactive demo: Linear Regression</h2>
+    <p class="sub">Click on the chart to add data points. The model fits a best-fit line instantly and predicts new values.</p>
+    <div class="panel">
+      <canvas id="chart" width="800" height="400"></canvas>
+      <div class="readout">
+        <div><span>Points</span><b id="n">0</b></div>
+        <div><span>Equation</span><b id="eq">y = –</b></div>
+        <div><span>R² score</span><b id="r2">–</b></div>
+      </div>
+      <div class="predict">
+        <label for="px">Predict y for x =</label>
+        <input id="px" type="number" value="5" step="0.5">
+        <b id="py">–</b>
+      </div>
+      <div class="cta">
+        <button class="btn" id="sample">Add sample data</button>
+        <button class="btn" id="clear">Clear</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>Features</h2>
+    <div class="grid">
+      <article class="card"><span>⚡</span><h3>Real-time training</h3><p>The model is recomputed every time you add a point.</p></article>
+      <article class="card"><span>📈</span><h3>Live metrics</h3><p>See the equation of the line and the R² score update instantly.</p></article>
+      <article class="card"><span>🎯</span><h3>Predictions</h3><p>Enter any x value and get the predicted y from the trained model.</p></article>
+      <article class="card"><span>📱</span><h3>Responsive design</h3><p>Works on phones, tablets and desktops, with light and dark themes.</p></article>
+    </div>
+  </section>
+
+  <section id="stack">
+    <h2>Tech stack</h2>
+    <div class="chips"><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Canvas API</i><i>Git &amp; GitHub</i><i>GitHub Pages</i></div>
+  </section>
+
+  <section id="about">
+    <h2>About the developer</h2>
+    <p>Hi, I'm <b>Madhura Patil</b>, a student of Artificial Intelligence and Machine Learning at <b>KIT's College of Engineering (Autonomous), Kolhapur</b>. This project was deployed with GitHub Pages for the Software System Tools Laboratory.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/Madhura-patil-2007/aiml-project" target="_blank" rel="noopener">Repository</a>
+      <a class="btn" href="https://github.com/Madhura-patil-2007" target="_blank" rel="noopener">GitHub Profile</a>
+      <a class="btn" href="mailto:mdap1508@gmail.com">Email</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Madhura Patil · Built with GitHub Pages</footer>
+<script src="script.js"></script>
+</body>
+</html>
